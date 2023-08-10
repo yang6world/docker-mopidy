@@ -13,6 +13,7 @@ RUN set -ex \
         python3-crypto \
         python3-distutils \
         sudo \
+        wget \
  && curl -L https://bootstrap.pypa.io/get-pip.py | python3 - \
  && pip install pipenv \
     # Clean-up
