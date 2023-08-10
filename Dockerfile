@@ -64,7 +64,7 @@ RUN set -ex \
 USER mopidy
 
 # Basic check,
-RUN /usr/bin/dumb-init /entrypoint.sh /usr/bin/mopidy --version
+RUN /usr/bin/dumb-init /entrypoint.sh /usr/local/bin/mopidy --version
 
 VOLUME ["/var/lib/mopidy/local", "/var/lib/mopidy/media"]
 
