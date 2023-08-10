@@ -34,7 +34,7 @@
 
     $ docker run --rm \
         --user root --device /dev/snd \
-        wernight/mopidy \
+        ghcr.io/yang6world/docker-mopidy:master \
         gst-launch-1.0 audiotestsrc ! audioresample ! autoaudiosink
 
 #### 本机 PulseAudio
@@ -43,7 +43,7 @@
 
     $ docker run --rm \
         --user $UID:$GID -v /run/user/$UID/pulse:/run/user/105/pulse \
-        wernight/mopidy \
+        ghcr.io/yang6world/docker-mopidy:master \
         gst-launch-1.0 audiotestsrc ! audioresample ! autoaudiosink
 
 #### 通过网络的 PulseAudio
@@ -78,7 +78,7 @@
     $ docker run --rm \
         -e "PULSE_SERVER=tcp:$(hostname -i):4713" \
         -e "PULSE_COOKIE_DATA=$(pax11publish -d | grep --color=never -Po '(?<=^Cookie: ).*')" \
-        wernight/mopidy \
+        ghcr.io/yang6world/docker-mopidy:master \
         gst-launch-1.0 audiotestsrc ! audioresample ! autoaudiosink
 
 ### 一般用法
@@ -89,7 +89,7 @@
         -v "$PWD/local:/var/lib/mopidy/local" \
         -p 6600:6600 -p 6680:6680 \
         --user $UID:$GID \
-        wernight/mopidy \
+        ghcr.io/yang6world/docker-mopidy:master \
         mopidy \
         -o spotify/username=用户名 -o spotify/password=密码 \
         -o gmusic/username=用户名 -o gmusic/password=密码 \
@@ -152,7 +152,7 @@
         -v "$PWD/mopidy.conf:/config/mopidy.conf" \
         -p 6600:6600 -p 6680:6680 \
         --user $UID:$GID \
-        wernight/mopidy
+        ghcr.io/yang6world/docker-mopidy:master
 
 
 ##### 使用 HTTP 客户端从容器中流式传输本地文件的示例
@@ -165,7 +165,7 @@
             -v "$PWD/media:/var/lib/mopidy/media:ro" \
             -v "$PWD/local:/var/lib/mopidy/local" \
             -p 6680:6680 \
-            wernight/mopidy mopidy local scan
+            ghcr.io/yang6world/docker-mopidy:master mopidy local scan
 
  3. 启动服务器：
 
@@ -175,7 +175,7 @@
             -v "$PWD/media:/var/lib/mopidy/media:ro" \
             -v "$PWD/local:/var/lib/mopidy/local" \
             -p 6680:6680 \
-            wernight/mopidy
+            ghcr.io/yang6world/docker-mopidy:master
 
  4. 浏览至 http://localhost:6680/
 
