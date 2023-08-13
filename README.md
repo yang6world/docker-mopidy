@@ -183,7 +183,7 @@
 
     $ docker run --name mopidy -d \
         -v /run/user/$UID/pulse:/run/user/105/pulse \
-        wernight/mopidy
+        ghcr.io/yang6world/docker-mopidy:master
     $ docker run --rm -it --net container:mopidy wernight/ncmpcpp ncmpcpp
 
 如果您不需要可视化效果，也可以：
